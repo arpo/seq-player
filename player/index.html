@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<title>SpriteMate</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+	<link rel="icon" type="image/png" href="assets/img/icon.png">
+
+	<style>
+
+		.animCont1 {
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+		}
+
+		#progress {
+			width: 50%;
+		}
+
+	</style>
+
+</head>
+<body>
+
+	<div class="animCont1 spriteMateOuter"></div>
+
+	<label for="progress"></label>
+	<input type="range" min="0" max="100" value="0" id="progress" step="1" oninput="outputUpdate(value)">
+	<output for="progress" id="volume">0</output>
+
+	<script>
+		function outputUpdate(vol) {
+			document.querySelector('#volume').value = vol;
+			NIBS.main.setProgress(parseInt(vol) / 100)
+		}
+	</script>
+
+	<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+	<script type="text/javascript" src="assets/js/main.js"></script>
+	<script type="text/javascript" src="https://cdn.rawgit.com/VerbalExpressions/JSVerbalExpressions/master/VerbalExpressions.js"></script>
+	<script type="text/javascript" src="assets/js/SpriteMate.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			NIBS.main.init();
+		});
+	</script>
+</body>
+</html>
